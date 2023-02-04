@@ -36,6 +36,8 @@ def isGameOver():
 
 def winnerDef():  # This function modifies the "winner" variable so that winner can be established by reading the variable
     if isGameOver():
+        global winner
+
         #  iterating rows
         if board[0][0] == board[0][1] == board[0][2]:
             winner = board[0][0]
