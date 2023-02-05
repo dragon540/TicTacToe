@@ -1,23 +1,26 @@
 import sys
 
+import gameTrack as gt
+import Game_var as gv
+""""
 board = [["0,0", "0,1", "0,2"],
          ["1,0", "1,1", "1,2"],
          ["2,0", "2,1", "2,2"]]
 
 winner = "NaN"
-
+"""
 """def printBoard():
     for i in range(0, 3):
         for j in range(0, 3):
             print(board[i][j], end=" ")
         print("")
 """
-def printBoard():
+"""def printBoard():
     for i in range(0, 3):
         print(board[i])
+"""
 
-
-def isGameOver():
+"""def isGameOver():
     # checking rows
     if ((board[0][0] == board[0][1] == board[0][2]) or (board[1][0] == board[1][1] == board[1][2])
             or (board[2][0] == board[2][1] == board[2][2])):
@@ -32,9 +35,9 @@ def isGameOver():
 
     else:
         return False
+"""
 
-
-def winnerDef():  # This function modifies the "winner" variable so that winner can be established by reading the variable
+"""def winnerDef():  # This function modifies the "winner" variable so that winner can be established by reading the variable
     if isGameOver():
         global winner
 
@@ -59,9 +62,9 @@ def winnerDef():  # This function modifies the "winner" variable so that winner 
             winner = board[0][0]
         elif board[0][2] == board[1][1] == board[2][0]:
             winner = board[0][2]
+"""
 
-
-def allTurnsPlayed():
+"""def allTurnsPlayed():
     count = 0
     for i in range(0,3):
         for j in range(0,3):
@@ -72,9 +75,9 @@ def allTurnsPlayed():
         return True
     else:
         return False
+"""
 
-
-def playerA_Turn() :
+"""def playerA_Turn() :
     row = int(input("PLAYER A \nEnter row of board "))
     column = int(input("Enter column of board "))
 
@@ -86,10 +89,9 @@ def playerB_Turn():
     column = int(input("Enter column of board "))
 
     board[row][column] = "O"
+"""
 
-
-# something wrong
-def winnerName():
+"""def winnerName():
     winnerDef()
     if isGameOver():
         if winner == "X":
@@ -100,9 +102,9 @@ def winnerName():
             print("NaN")
     else:
         pass
+"""
 
-
-def gamePlay() :
+"""def gamePlay() :
     printBoard()
     while (not isGameOver()) and (not allTurnsPlayed()) :
         # take input from player 1
@@ -117,9 +119,9 @@ def gamePlay() :
 
         printBoard()
         winnerName()
+"""
 
-
-gamePlay()
+gt.gamePlay()
 print("======================")
-winnerName()
-print(winner)
+gt.winnerName()
+print(gv.winner)
