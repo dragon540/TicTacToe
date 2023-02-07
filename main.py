@@ -121,7 +121,8 @@ def playerB_Turn():
         winnerName()
 """
 
-gt.gamePlay()
+gt.AI_gamePlay()
 print("======================")
 gt.winnerName()
 print(gv.winner)
+

@@ -2,6 +2,7 @@
 # This module contains functions which are required to keep track of the game state
 import Game_var as gv
 import player_input as pl
+import ai as ai
 
 def printBoard():
     for i in range(0, 3):
@@ -81,7 +82,7 @@ def winnerName():
         pass
 
 
-def gamePlay() :
+def twoPlayer_gamePlay() :
     printBoard()
     while (not isGameOver()) and (not allTurnsPlayed()) :
         # take input from player 1
@@ -93,6 +94,23 @@ def gamePlay() :
         elif (not isGameOver()) and (not allTurnsPlayed()):
             # take input from player 2
             pl.playerB_Turn()
+
+        printBoard()
+        winnerName()
+
+
+def AI_gamePlay():
+    printBoard()
+    while (not isGameOver()) and (not allTurnsPlayed()):
+        # take input from player
+        pl.playerA_Turn()
+        if isGameOver():
+            pass
+            # call function to print winner name
+            # winnerName()
+        elif (not isGameOver()) and (not allTurnsPlayed()):
+            # take input from AI
+            ai.AIfill_rand_loc("O")
 
         printBoard()
         winnerName()
