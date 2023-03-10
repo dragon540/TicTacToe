@@ -10,6 +10,13 @@ def printBoard():
         print(gv.board[i])
 
 
+def IsEmpty(row: int, col: int):
+    if gv.board[row][col] != 'X' and gv.board[row][col] != 'O':
+        return True
+    else:
+        return False
+
+
 def isGameOver():
     # checking rows
     for i in range(0, 3):
@@ -116,12 +123,15 @@ def twoPlayer_gamePlay():
 
 def AI_gamePlay():
     printBoard()
+
     while (not isGameOver()) and (not allTurnsPlayed()):
         # take input from player
         pl.playerA_Turn()
         if (not isGameOver()) and (not allTurnsPlayed()):
             # take input from AI
-            ai.AIfill_rand_loc("O")
+            ai.AIfill_rand_loc('O')
+            print(ai.tripletPossibility('O'))  # for debugging; to check if function is working properly or not
+            print("ai step over")  # for debugging; for clarity of the step of above function
 
         printBoard()
         winnerName()
