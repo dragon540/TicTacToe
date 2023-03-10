@@ -1,10 +1,21 @@
 # gameTrack.py
 # This module contains functions which are required to keep track of the game state
+
+from os import system, name
+
 import Game_var as gv
 import player_input as pl
 import ai as ai
 
 
+def clear_scr():
+    # for windows
+    if name == 'nt':
+        system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        system('clear')
 def printBoard():
     for i in range(0, 3):
         print(gv.board[i])
@@ -148,6 +159,22 @@ def AI_gamePlay():
         if (not isGameOver()) and (not allTurnsPlayed()):
             # take input from AI
             ai.AI_input('O')
+
+        printBoard()
+        winnerName()
+
+
+def AI_gamePlay():
+    clear_scr()
+    printBoard()
+
+    while (not isGameOver()) and (not allTurnsPlayed()):
+        # take input from player
+        pl.playerA_Turn()
+        if (not isGameOver()) and (not allTurnsPlayed()):
+            # take input from AI
+            ai.AI_input('O')
+            clear_scr()
 
         printBoard()
         winnerName()
