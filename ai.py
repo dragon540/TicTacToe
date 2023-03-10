@@ -3,6 +3,7 @@ import random
 import copy
 
 import Game_var as gv
+import gameTrack as gt
 
 
 # This function randomly fills an empty location
@@ -89,5 +90,32 @@ def tripletPossibility(symbol):
     """
     cord = [-1, -1]
     return cord
+
+
+def AI_input(ai_symbol):
+    if ai_symbol == 'X':
+        pl_symbol = 'O'
+    else:
+        pl_symbol = 'X'
+
+    c_pl = copy.copy(tripletPossibility(pl_symbol))
+    c_ai = copy.copy(tripletPossibility(ai_symbol))
+    """if tripletPossibility(ai_symbol) == [-1, -1] and tripletPossibility(pl_symbol) == [-1, 1]:
+        AIfill_rand_loc(ai_symbol)"""
+    if tripletPossibility(ai_symbol) == [-1, -1] and tripletPossibility(pl_symbol) != [-1, 1] and \
+            gt.IsEmpty(c_pl[0], c_pl[1]):
+        gv.board[c_pl[0]][c_pl[1]] = ai_symbol
+
+    elif tripletPossibility(ai_symbol) != [-1, -1] and tripletPossibility(pl_symbol) == [-1, 1] and \
+            gt.IsEmpty(c_ai[0], c_ai[1]):
+        gv.board[c_ai[0]][c_ai[1]] = ai_symbol
+
+    elif tripletPossibility(ai_symbol) != [-1, -1] and tripletPossibility(pl_symbol) != [-1, 1] and \
+            gt.IsEmpty(c_ai[0], c_ai[1]):
+        gv.board[c_ai[0]][c_ai[1]] = ai_symbol
+
+    else:
+        AIfill_rand_loc(ai_symbol)
+
 
 

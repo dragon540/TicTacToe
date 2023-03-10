@@ -121,7 +121,7 @@ def twoPlayer_gamePlay():
         winnerName()
 
 
-def AI_gamePlay():
+def AI_gamePlay_debug():
     printBoard()
 
     while (not isGameOver()) and (not allTurnsPlayed()):
@@ -132,6 +132,23 @@ def AI_gamePlay():
             ai.AIfill_rand_loc('O')
             print(ai.tripletPossibility('O'))  # for debugging; to check if function is working properly or not
             print("ai step over")  # for debugging; for clarity of the step of above function
+            print(ai.tripletPossibility('X'))  # for debugging; to check if function is working properly or not
+            print("human step over")  # for debugging; for clarity of the step of above function
 
         printBoard()
         winnerName()
+
+
+def AI_gamePlay():
+    printBoard()
+
+    while (not isGameOver()) and (not allTurnsPlayed()):
+        # take input from player
+        pl.playerA_Turn()
+        if (not isGameOver()) and (not allTurnsPlayed()):
+            # take input from AI
+            ai.AI_input('O')
+
+        printBoard()
+        winnerName()
+
