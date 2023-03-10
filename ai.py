@@ -28,7 +28,7 @@ def tripletPossibility(symbol):
         symbol_el: int = 0
         cord = [-1, -1]
         for c in range(0, 3):
-            if gv.board[r][c] != 'X' and gv.board[r][c] != 'O':  # to see if given element is empty or not
+            if gt.IsEmpty(r, c):
                 empty_el += 1
                 cord = [r, c]
             elif gv.board[r][c] == symbol:
@@ -42,7 +42,7 @@ def tripletPossibility(symbol):
         symbol_el: int = 0
         cord = [-1, -1]
         for r in range(0, 3):
-            if gv.board[r][c] != 'X' and gv.board[r][c] != 'O':  # to see if given element is empty or not
+            if gt.IsEmpty(r, c):
                 empty_el += 1
                 cord = [r, c]
             elif gv.board[r][c] == symbol:
@@ -57,7 +57,7 @@ def tripletPossibility(symbol):
     symbol_el: int = 0
     cord = [-1, -1]
     for i in range(0, 3):
-        if gv.board[i][i] != 'X' and gv.board[i][i] != 'O':  # to see if given element is empty or not
+        if gt.IsEmpty(i, i):
             empty_el += 1
             cord = [i, i]
         elif gv.board[i][i] == symbol:
@@ -80,7 +80,7 @@ def tripletPossibility(symbol):
     symbol_el: int = 0
     cord = [-1, -1]
     for i in range(0, 3):
-        if rev_board[i][i] != 'X' and rev_board[i][i] != 'O':
+        if gt.IsEmpty(r, c):
             empty_el += 1
             cord = [i, i]
         elif rev_board[i][i] == symbol:
