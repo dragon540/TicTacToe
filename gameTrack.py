@@ -16,6 +16,8 @@ def clear_scr():
     # for mac and linux(here, os.name is 'posix')
     else:
         system('clear')
+
+
 def printBoard():
     for i in range(0, 3):
         print(gv.board[i])
