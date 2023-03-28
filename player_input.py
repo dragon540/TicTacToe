@@ -13,7 +13,7 @@ def playerA_Turn():
     if gt.IsEmpty(row, column):
         Game_var.board[row][column] = "X"
     else:
-        print("This box is already fixed")
+        print("This box is already filled")
         playerA_Turn()
 
 
@@ -28,5 +28,5 @@ def playerB_Turn():
     if gt.IsEmpty(row, column):
         Game_var.board[row][column] = "O"
     else:
-        print("This box is already fixed")
+        print("This box is already filled")
         playerA_Turn()
